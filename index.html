@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hanke Digital Solutions - Portal Imobiliário</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Estilos personalizados para complementar o Tailwind */
+        body {
+            background-color: #121212;
+            font-family: 'Inter', sans-serif;
+            color: #E0E0E0;
+        }
+
+        /* Efeito de Liquid Glass para o Header e outros elementos */
+        .glass-effect {
+            background: rgba(18, 18, 18, 0.5); /* Fundo semi-transparente */
+            -webkit-backdrop-filter: blur(20px); /* Desfoque para navegadores WebKit */
+            backdrop-filter: blur(20px); /* Desfoque padrão */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* Efeito de preenchimento suave no hover */
+        .glass-effect-hover:hover {
+            background: rgba(99, 102, 241, 0.3); /* Azul "blurple" com mais opacidade */
+            border-color: rgba(129, 140, 248, 0.7);
+        }
+
+        /* Gradiente para a imagem principal */
+        .hero-gradient::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(to top, #121212 10%, transparent 100%);
+            pointer-events: none; /* Garante que o gradiente não interfira com cliques */
+        }
+        
+        /* Animação de fade-in para as seções */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- ===== HEADER (CABEÇALHO) ===== -->
+    <header id="main-header" class="glass-effect fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white">Hanke<span class="text-indigo-400">.</span>Imóveis</a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#inicio" class="text-gray-300 hover:text-indigo-400 transition-colors">Início</a>
+                <a href="#destaques" class="text-gray-300 hover:text-indigo-400 transition-colors">Destaques</a>
+                <a href="#servicos" class="text-gray-300 hover:text-indigo-400 transition-colors">Serviços</a>
+                <a href="#contato" class="text-gray-300 hover:text-indigo-400 transition-colors">Contato</a>
+            </nav>
+            <button class="md:hidden text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ===== SEÇÃO 1: HERO (IMAGEM PRINCIPAL) ===== -->
+        <section id="inicio" class="relative h-screen w-full flex items-center justify-center text-center bg-cover bg-center hero-gradient" style="background-image: url('fullsize_imovel.png');" 
+                 onerror="this.style.backgroundImage='url(https://placehold.co/1920x1080/121212/E0E0E0?text=Imagem+Principal)'">
+            <div class="z-10 relative px-4">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4">Encontre o Imóvel dos Seus Sonhos</h1>
+                <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8">Soluções imobiliárias inteligentes para você morar ou investir com segurança e tranquilidade.</p>
+                <div class="max-w-xl mx-auto">
+                     <div class="relative">
+                        <input type="text" placeholder="Buscar por cidade, bairro ou tipo de imóvel..." class="w-full py-4 px-6 rounded-full text-white bg-white/10 border border-white/20 focus:ring-2 focus:ring-indigo-400 focus:outline-none placeholder-gray-400 transition-all duration-300">
+                        <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-indigo-500 hover:bg-indigo-600 rounded-full p-3 transition-colors">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SEÇÃO 2: DESTAQUES ===== -->
+        <section id="destaques" class="py-20 md:py-32 fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Imóveis em Destaque</h2>
+                    <p class="text-gray-400 mt-2">Uma seleção especial de oportunidades incríveis.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Card de Imóvel 1 -->
+                    <div class="bg-gray-900/50 rounded-lg overflow-hidden group transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="destaque1.png" alt="Imóvel em destaque 1" class="w-full h-56 object-cover" onerror="this.src='https://placehold.co/600x400/1A1A1A/E0E0E0?text=Destaque+1'">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-white mb-2">Apartamento Moderno na Orla</h3>
+                            <p class="text-indigo-400 mb-4">Balneário Camboriú, SC</p>
+                            <p class="text-2xl font-bold text-white">R$ 2.500.000</p>
+                        </div>
+                    </div>
+                    <!-- Card de Imóvel 2 -->
+                    <div class="bg-gray-900/50 rounded-lg overflow-hidden group transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="destaque2.png" alt="Imóvel em destaque 2" class="w-full h-56 object-cover" onerror="this.src='https://placehold.co/600x400/1A1A1A/E0E0E0?text=Destaque+2'">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-white mb-2">Casa com Piscina e Área Gourmet</h3>
+                            <p class="text-indigo-400 mb-4">Londrina, PR</p>
+                            <p class="text-2xl font-bold text-white">R$ 1.800.000</p>
+                        </div>
+                    </div>
+                    <!-- Card de Imóvel 3 -->
+                    <div class="bg-gray-900/50 rounded-lg overflow-hidden group transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="destaque3.png" alt="Imóvel em destaque 3" class="w-full h-56 object-cover" onerror="this.src='https://placehold.co/600x400/1A1A1A/E0E0E0?text=Destaque+3'">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-white mb-2">Residência de Alto Padrão</h3>
+                            <p class="text-indigo-400 mb-4">Alphaville, SP</p>
+                            <p class="text-2xl font-bold text-white">R$ 4.200.000</p>
+                        </div>
+                    </div>
+                    <!-- Card de Imóvel 4 -->
+                    <div class="bg-gray-900/50 rounded-lg overflow-hidden group transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="destaque4.png" alt="Imóvel em destaque 4" class="w-full h-56 object-cover" onerror="this.src='https://placehold.co/600x400/1A1A1A/E0E0E0?text=Destaque+4'">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-white mb-2">Cobertura Duplex com Vista</h3>
+                            <p class="text-indigo-400 mb-4">Rio de Janeiro, RJ</p>
+                            <p class="text-2xl font-bold text-white">R$ 3.750.000</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                    <a href="#" class="glass-effect glass-effect-hover inline-block text-white font-semibold py-3 px-8 rounded-full transition-all duration-300">
+                        Ver mais imóveis
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SEÇÃO 3: SERVIÇOS ===== -->
+        <section id="servicos" class="py-20 md:py-32 bg-gray-900/30 fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Nossos Diferenciais</h2>
+                    <p class="text-gray-400 mt-2">Mais do que uma imobiliária, uma parceira de negócios.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+                    <div class="p-8 rounded-lg">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-indigo-500/20 text-indigo-400 mx-auto mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Consultoria Especializada</h3>
+                        <p class="text-gray-400">Nossa equipe está pronta para oferecer a melhor assessoria na compra, venda ou locação.</p>
+                    </div>
+                    <div class="p-8 rounded-lg">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-indigo-500/20 text-indigo-400 mx-auto mb-4">
+                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Assessoria Financeira</h3>
+                        <p class="text-gray-400">Ajudamos você a encontrar as melhores condições de financiamento do mercado.</p>
+                    </div>
+                    <div class="p-8 rounded-lg">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-indigo-500/20 text-indigo-400 mx-auto mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Suporte Jurídico</h3>
+                        <p class="text-gray-400">Garantimos a segurança e a transparência em toda a documentação e processo legal.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SEÇÃO 4: CONTATO ===== -->
+        <section id="contato" class="py-20 md:py-32 fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Fale Conosco</h2>
+                    <p class="text-gray-400 mt-2">Tem alguma dúvida ou quer agendar uma visita? Envie sua mensagem.</p>
+                </div>
+                <div class="max-w-3xl mx-auto">
+                    <form action="#" method="POST" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <input type="text" name="name" placeholder="Seu nome" class="w-full p-4 rounded-lg bg-gray-900/50 border border-white/20 focus:ring-2 focus:ring-indigo-400 focus:outline-none transition-all">
+                            <input type="email" name="email" placeholder="Seu e-mail" class="w-full p-4 rounded-lg bg-gray-900/50 border border-white/20 focus:ring-2 focus:ring-indigo-400 focus:outline-none transition-all">
+                        </div>
+                        <input type="tel" name="phone" placeholder="Seu telefone (opcional)" class="w-full p-4 rounded-lg bg-gray-900/50 border border-white/20 focus:ring-2 focus:ring-indigo-400 focus:outline-none transition-all">
+                        <textarea name="message" rows="5" placeholder="Sua mensagem..." class="w-full p-4 rounded-lg bg-gray-900/50 border border-white/20 focus:ring-2 focus:ring-indigo-400 focus:outline-none transition-all"></textarea>
+                        <div class="text-center">
+                            <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-10 rounded-full transition-colors duration-300">
+                                Enviar Mensagem
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER (RODAPÉ) ===== -->
+    <footer class="bg-gray-900/50 border-t border-white/10 pt-12 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-4">Hanke.Imóveis</h3>
+                    <p class="text-gray-400">Transformando sonhos em lares. Encontre o seu espaço ideal conosco.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Contate-nos</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="mailto:contato@hankeimoveis.com" class="hover:text-indigo-400">E-mail</a></li>
+                        <li><a href="tel:+5543999999999" class="hover:text-indigo-400">Telefone</a></li>
+                        <li><a href="#" id="footer-chat-link" class="hover:text-indigo-400">Chat ao vivo</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">A Empresa</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-indigo-400">Hanke Digital Solutions</a></li>
+                        <li><a href="#" class="hover:text-indigo-400">Política de Privacidade</a></li>
+                        <li><a href="#" class="hover:text-indigo-400">Termos de Serviço</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-white/10 pt-6 text-center text-gray-500">
+                <p>&copy; 2025 Hanke Digital Solutions. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== BOTÃO FLUTUANTE DE CHAT ===== -->
+    <button id="chat-fab" class="glass-effect glass-effect-hover fixed bottom-6 right-6 h-16 w-16 rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform duration-300">
+        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+    </button>
+
+    <!-- ===== MODAL DE CHAT ===== -->
+    <div id="chat-modal" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+        <div class="glass-effect w-full max-w-md rounded-2xl shadow-2xl flex flex-col h-[70vh]">
+            <!-- Cabeçalho do Modal -->
+            <div class="flex justify-between items-center p-4 border-b border-white/10">
+                <h3 class="text-lg font-semibold text-white">Chat ao Vivo</h3>
+                <button id="close-chat-modal" class="text-gray-400 hover:text-white">&times;</button>
+            </div>
+            <!-- Corpo do Chat -->
+            <div class="flex-grow p-4 space-y-4 overflow-y-auto">
+                <!-- Mensagem do Corretor -->
+                <div class="flex">
+                    <div class="bg-indigo-500/50 text-white p-3 rounded-lg max-w-xs">
+                        <p>Olá! Como posso ajudar você a encontrar seu novo imóvel hoje?</p>
+                    </div>
+                </div>
+                <!-- Mensagem do Usuário (exemplo) -->
+                <div class="flex justify-end">
+                    <div class="bg-gray-700/80 text-white p-3 rounded-lg max-w-xs">
+                        <p>Oi! Gostaria de mais informações sobre a casa em Londrina.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Input de Mensagem -->
+            <div class="p-4 border-t border-white/10">
+                <div class="relative">
+                    <input type="text" placeholder="Digite sua mensagem..." class="w-full bg-gray-900/50 border border-white/20 rounded-full py-3 px-5 pr-14 text-white focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                    <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-indigo-500 hover:bg-indigo-600 rounded-full p-2.5 transition-colors">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Lógica do Header com efeito de scroll ---
+            const header = document.getElementById('main-header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('bg-opacity-80');
+                    header.style.setProperty('-webkit-backdrop-filter', 'blur(25px)');
+                    header.style.setProperty('backdrop-filter', 'blur(25px)');
+                } else {
+                    header.classList.remove('bg-opacity-80');
+                    header.style.setProperty('-webkit-backdrop-filter', 'blur(20px)');
+                    header.style.setProperty('backdrop-filter', 'blur(20px)');
+                }
+            });
+
+            // --- Lógica para abrir e fechar o Modal de Chat ---
+            const chatFab = document.getElementById('chat-fab');
+            const footerChatLink = document.getElementById('footer-chat-link');
+            const chatModal = document.getElementById('chat-modal');
+            const closeChatModal = document.getElementById('close-chat-modal');
+
+            const openModal = () => chatModal.classList.remove('hidden');
+            const closeModal = () => chatModal.classList.add('hidden');
+
+            chatFab.addEventListener('click', openModal);
+            footerChatLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal();
+            });
+            closeChatModal.addEventListener('click', closeModal);
+            
+            // Fecha o modal se clicar fora da janela de chat
+            chatModal.addEventListener('click', (event) => {
+                if (event.target === chatModal) {
+                    closeModal();
+                }
+            });
+
+            // --- Lógica para animação de fade-in das seções ---
+            const sections = document.querySelectorAll('.fade-in-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+
+</body>
+</html>
