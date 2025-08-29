@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Senha - Painel Administrativo Hanke</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Efeito de Liquid Glass */
+        .glass-effect {
+            background: rgba(18, 18, 18, 0.6);
+            -webkit-backdrop-filter: blur(25px);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-cover bg-center" style="background-image: url('fullsize_imovel.png');" onerror="this.parentElement.style.backgroundColor='#121212'">
+
+    <div class="min-h-screen flex items-center justify-center p-4 bg-black/60">
+        
+        <div id="recovery-card" class="glass-effect max-w-md w-full p-8 md:p-10 rounded-2xl shadow-2xl">
+            
+            <!-- Conteúdo inicial do formulário -->
+            <div id="form-content">
+                <!-- Cabeçalho do formulário -->
+                <div class="text-center mb-8">
+                    <h1 class="text-3xl font-bold text-white">Recuperar Senha</h1>
+                    <p class="text-gray-400 mt-2">Digite seu e-mail para receber o link de redefinição.</p>
+                </div>
+
+                <!-- Formulário de Recuperação -->
+                <form id="recovery-form">
+                    <div class="space-y-6">
+                        <!-- Campo de E-mail -->
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-300 mb-2">E-mail</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                required 
+                                autocomplete="email"
+                                placeholder="seuemail@exemplo.com"
+                                class="w-full p-4 rounded-lg bg-gray-900/50 border border-white/20 text-white placeholder-gray-500 focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 focus:outline-none transition-all"
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Botão de Enviar -->
+                    <div class="mt-8">
+                        <button 
+                            type="submit" 
+                            class="w-full text-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-full transition-colors duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-indigo-500"
+                        >
+                            Enviar link de recuperação
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Link para voltar ao Login -->
+                <div class="text-center mt-6">
+                    <a href="login.html" class="font-medium text-sm text-indigo-400 hover:text-indigo-500 transition-colors">
+                        Voltar para o Login
+                    </a>
+                </div>
+            </div>
+
+            <!-- Conteúdo de confirmação (inicialmente oculto) -->
+            <div id="confirmation-content" class="hidden text-center">
+                <div class="flex justify-center mb-6">
+                     <svg class="w-16 h-16 text-green-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <h1 class="text-2xl font-bold text-white">Link Enviado!</h1>
+                <p class="text-gray-400 mt-2 mb-6">Verifique sua caixa de entrada (e a pasta de spam) para continuar o processo de redefinição de senha.</p>
+                <a href="login.html" class="font-medium text-sm text-indigo-400 hover:text-indigo-500 transition-colors">
+                    Voltar para o Login
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const recoveryForm = document.getElementById('recovery-form');
+            const formContent = document.getElementById('form-content');
+            const confirmationContent = document.getElementById('confirmation-content');
+
+            recoveryForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Impede o envio real do formulário
+                
+                // Simula o envio bem-sucedido
+                formContent.classList.add('hidden');
+                confirmationContent.classList.remove('hidden');
+            });
+        });
+    </script>
+
+</body>
+</html>
