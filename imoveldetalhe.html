@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Imóvel - Hanke Digital Solutions</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Estilos personalizados para complementar o Tailwind */
+        body {
+            background-color: #121212;
+            font-family: 'Inter', sans-serif;
+            color: #E0E0E0;
+        }
+
+        /* Efeito de Liquid Glass para o Header e outros elementos */
+        .glass-effect {
+            background: rgba(18, 18, 18, 0.5); /* Fundo semi-transparente */
+            -webkit-backdrop-filter: blur(20px); /* Desfoque para navegadores WebKit */
+            backdrop-filter: blur(20px); /* Desfoque padrão */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* Efeito de preenchimento suave no hover */
+        .glass-effect-hover:hover {
+            background: rgba(99, 102, 241, 0.3); /* Azul "blurple" com mais opacidade */
+            border-color: rgba(129, 140, 248, 0.7);
+        }
+
+        /* Estilo para a thumbnail da galeria ativa */
+        .gallery-thumbnail.active {
+            border-color: #818cf8; /* indigo-400 */
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- ===== HEADER (CABEÇALHO) ===== -->
+    <header id="main-header" class="glass-effect sticky top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-white">Hanke<span class="text-indigo-400">.</span>Imóveis</a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html#inicio" class="text-gray-300 hover:text-indigo-400 transition-colors">Início</a>
+                <a href="index.html#destaques" class="text-gray-300 hover:text-indigo-400 transition-colors">Destaques</a>
+                <a href="index.html#servicos" class="text-gray-300 hover:text-indigo-400 transition-colors">Serviços</a>
+                <a href="index.html#contato" class="text-gray-300 hover:text-indigo-400 transition-colors">Contato</a>
+            </nav>
+            <button class="md:hidden text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="pt-10 pb-20">
+        <div class="container mx-auto px-6">
+            
+            <!-- Grid Principal: Galeria e Informações -->
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
+
+                <!-- Coluna da Galeria de Imagens (Ocupa 3 colunas em telas grandes) -->
+                <div class="lg:col-span-3">
+                    <div class="mb-4 rounded-lg overflow-hidden">
+                        <img id="main-image" src="destaque3.png" alt="Fachada da residência de alto padrão" class="w-full h-auto object-cover rounded-lg transition-all duration-300" 
+                             onerror="this.src='https://placehold.co/1200x800/1A1A1A/E0E0E0?text=Imagem+Principal'">
+                    </div>
+                    <div class="grid grid-cols-4 gap-4">
+                        <img src="destaque3.png" alt="Thumbnail 1" class="gallery-thumbnail active w-full h-24 object-cover rounded-md cursor-pointer border-2 border-transparent opacity-60 hover:opacity-100 transition-all"
+                             onerror="this.src='https://placehold.co/300x200/1A1A1A/E0E0E0?text=Img+1'">
+                        <img src="destaque1.png" alt="Thumbnail 2" class="gallery-thumbnail w-full h-24 object-cover rounded-md cursor-pointer border-2 border-transparent opacity-60 hover:opacity-100 transition-all"
+                             onerror="this.src='https://placehold.co/300x200/1A1A1A/E0E0E0?text=Img+2'">
+                        <img src="destaque2.png" alt="Thumbnail 3" class="gallery-thumbnail w-full h-24 object-cover rounded-md cursor-pointer border-2 border-transparent opacity-60 hover:opacity-100 transition-all"
+                             onerror="this.src='https://placehold.co/300x200/1A1A1A/E0E0E0?text=Img+3'">
+                        <img src="destaque4.png" alt="Thumbnail 4" class="gallery-thumbnail w-full h-24 object-cover rounded-md cursor-pointer border-2 border-transparent opacity-60 hover:opacity-100 transition-all"
+                             onerror="this.src='https://placehold.co/300x200/1A1A1A/E0E0E0?text=Img+4'">
+                    </div>
+                </div>
+
+                <!-- Coluna de Informações (Ocupa 2 colunas em telas grandes) -->
+                <div class="lg:col-span-2">
+                    <div class="bg-gray-900/50 p-8 rounded-lg sticky top-28">
+                        <p class="text-indigo-400 font-semibold mb-2">Casa de Condomínio</p>
+                        <h1 class="text-3xl lg:text-4xl font-extrabold text-white mb-3">Residência de Alto Padrão</h1>
+                        <p class="text-gray-400 mb-6">Alphaville, São Paulo, SP</p>
+
+                        <p class="text-4xl lg:text-5xl font-bold text-white mb-8">R$ 4.200.000</p>
+                        
+                        <div class="flex space-x-4 mb-8">
+                            <a href="#formulario-contato" class="flex-1 text-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-full transition-colors duration-300">
+                                Entrar em Contato
+                            </a>
+                            <button id="open-chat-button" class="flex-1 text-center glass-effect glass-effect-hover text-white font-semibold py-3 px-6 rounded-full transition-all duration-300">
+                                Conversar com Corretor
+                            </button>
+                        </div>
+                        
+                        <div class="border-t border-white/10 pt-6">
+                            <h3 class="text-lg font-semibold text-white mb-4">Características Principais</h3>
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div class="flex items-center space-x-3">
+                                    <svg class="w-5 h-5 text-indigo-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8V4m0 4h4m-4 0l4-4m13 12v4m0-4h-4m4 0l-4 4M8 3v4m0 0H4m4 0l-4 4m12 13v-4m0 0h4m-4 0l4-4"/></svg>
+                                    <span class="text-gray-300">Área Útil: <span class="font-semibold">450 m²</span></span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                     <svg class="w-5 h-5 text-indigo-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                                    <span class="text-gray-300">Área Total: <span class="font-semibold">600 m²</span></span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <svg class="w-5 h-5 text-indigo-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/></svg>
+                                    <span class="text-gray-300">Quartos: <span class="font-semibold">4</span></span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <svg class="w-5 h-5 text-indigo-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" ><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" /></svg>
+                                    <span class="text-gray-300">Banheiros: <span class="font-semibold">5</span></span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <svg class="w-5 h-5 text-indigo-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    <span class="text-gray-300">Vagas: <span class="font-semibold">4</span></span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <svg class="w-5 h-5 text-indigo-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    <span class="text-gray-300">Status: <span class="font-semibold text-green-400">Disponível</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção de Descrição e Detalhes -->
+            <div class="mt-16">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-2xl font-bold text-white mb-4">Descrição do Imóvel</h2>
+                    <p class="text-gray-400 leading-relaxed mb-8">
+                        Experimente o auge do luxo e do conforto nesta magnífica residência em Alphaville. Com um design arquitetônico moderno e acabamentos de primeiríssima qualidade, este imóvel oferece uma experiência de vida incomparável. A área social é ampla e integrada, perfeita para receber amigos e familiares, com uma sala de estar com pé direito duplo que se conecta a uma varanda gourmet e à área da piscina. As quatro suítes são espaçosas, incluindo uma suíte master com closet e hidromassagem.
+                    </p>
+
+                    <h2 class="text-2xl font-bold text-white mb-4">Detalhes Adicionais</h2>
+                    <ul class="list-disc list-inside text-gray-400 space-y-2">
+                        <li>Piscina aquecida com deck de madeira</li>
+                        <li>Sistema de automação residencial</li>
+                        <li>Cozinha planejada com eletrodomésticos premium</li>
+                        <li>Condomínio com segurança 24 horas e área de lazer completa</li>
+                        <li>CEP: 06473-000</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Seção de Formulário de Contato -->
+            <div id="formulario-contato" class="mt-20 pt-16 border-t border-white/10">
+                <div class="max-w-3xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white">Gostou deste imóvel?</h2>
+                        <p class="text-gray-400 mt-2">Envie uma mensagem e agende sua visita. Retornaremos o mais breve possível.</p>
+                    </div>
+                    <form action="#" method="POST" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <input type="text" name="name" placeholder="Seu nome" required class="w-full p-4 rounded-lg bg-gray-900/50 border border-white/20 focus:ring-2 focus:ring-indigo-400 focus:outline-none transition-all">
+                            <input type="email" name="email" placeholder="Seu e-mail" required class="w-full p-4 rounded-lg bg-gray-900/50 border border-white/20 focus:ring-2 focus:ring-indigo-400 focus:outline-none transition-all">
+                        </div>
+                        <input type="tel" name="phone" placeholder="Seu telefone (opcional)" class="w-full p-4 rounded-lg bg-gray-900/50 border border-white/20 focus:ring-2 focus:ring-indigo-400 focus:outline-none transition-all">
+                        <textarea name="message" rows="5" placeholder="Sua mensagem..." required class="w-full p-4 rounded-lg bg-gray-900/50 border border-white/20 focus:ring-2 focus:ring-indigo-400 focus:outline-none transition-all"></textarea>
+                        <div class="text-center">
+                            <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-10 rounded-full transition-colors duration-300">
+                                Enviar Mensagem
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ===== FOOTER (RODAPÉ) ===== -->
+    <footer class="bg-gray-900/50 border-t border-white/10 pt-12 pb-8">
+        <div class="container mx-auto px-6 text-center text-gray-500">
+            <p>&copy; 2025 Hanke Digital Solutions. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- ===== BOTÃO FLUTUANTE DE CHAT ===== -->
+    <button id="chat-fab" class="glass-effect glass-effect-hover fixed bottom-6 right-6 h-16 w-16 rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform duration-300">
+        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+    </button>
+
+    <!-- ===== MODAL DE CHAT ===== -->
+    <div id="chat-modal" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+        <div class="glass-effect w-full max-w-md rounded-2xl shadow-2xl flex flex-col h-[70vh]">
+            <div class="flex justify-between items-center p-4 border-b border-white/10">
+                <h3 class="text-lg font-semibold text-white">Chat ao Vivo</h3>
+                <button id="close-chat-modal" class="text-gray-400 hover:text-white">&times;</button>
+            </div>
+            <div class="flex-grow p-4 space-y-4 overflow-y-auto">
+                <div class="flex">
+                    <div class="bg-indigo-500/50 text-white p-3 rounded-lg max-w-xs">
+                        <p>Olá! Tenho interesse neste imóvel. Pode me passar mais detalhes?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10">
+                <div class="relative">
+                    <input type="text" placeholder="Digite sua mensagem..." class="w-full bg-gray-900/50 border border-white/20 rounded-full py-3 px-5 pr-14 text-white focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                    <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-indigo-500 hover:bg-indigo-600 rounded-full p-2.5 transition-colors">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Lógica do Modal de Chat ---
+            const chatFab = document.getElementById('chat-fab');
+            const openChatButton = document.getElementById('open-chat-button');
+            const chatModal = document.getElementById('chat-modal');
+            const closeChatModal = document.getElementById('close-chat-modal');
+
+            const openModal = () => chatModal.classList.remove('hidden');
+            const closeModal = () => chatModal.classList.add('hidden');
+
+            chatFab.addEventListener('click', openModal);
+            openChatButton.addEventListener('click', openModal);
+            closeChatModal.addEventListener('click', closeModal);
+            
+            chatModal.addEventListener('click', (event) => {
+                if (event.target === chatModal) closeModal();
+            });
+
+            // --- Lógica da Galeria de Imagens ---
+            const mainImage = document.getElementById('main-image');
+            const thumbnails = document.querySelectorAll('.gallery-thumbnail');
+
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', function() {
+                    // Atualiza a imagem principal
+                    mainImage.src = this.src;
+                    
+                    // Remove a classe 'active' de todas as thumbnails
+                    thumbnails.forEach(t => t.classList.remove('active'));
+                    
+                    // Adiciona a classe 'active' na thumbnail clicada
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
