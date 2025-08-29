@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca de Imóveis - Hanke Digital Solutions</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121212;
+            color: #E0E0E0;
+        }
+
+        /* Efeito de Liquid Glass */
+        .glass-effect {
+            background: rgba(24, 24, 27, 0.5); /* Cor base (zinc-900 com opacidade) */
+            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Estilização da barra de rolagem */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background-color: #18181b; }
+        ::-webkit-scrollbar-thumb { background-color: #3f3f46; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background-color: #52525b; }
+
+        /* Estilo customizado para input range (slider de preço) */
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 4px;
+            background: #3f3f46; /* zinc-700 */
+            outline: none;
+            border-radius: 2px;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #818cf8; /* indigo-400 */
+            cursor: pointer;
+            border-radius: 50%;
+            border: 2px solid #121212;
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            background: #818cf8; /* indigo-400 */
+            cursor: pointer;
+            border-radius: 50%;
+            border: 2px solid #121212;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 glass-effect">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-white">Hanke<span class="text-indigo-400">.</span></h1>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="index.html" class="text-gray-300 hover:text-white transition-colors">Início</a>
+                <a href="#" class="text-white font-semibold transition-colors">Buscar Imóveis</a>
+                <a href="#servicos" class="text-gray-300 hover:text-white transition-colors">Serviços</a>
+                <a href="#contato" class="text-gray-300 hover:text-white transition-colors">Contato</a>
+            </nav>
+            <button class="md:hidden text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <div class="container mx-auto px-6 py-12">
+            <!-- Seção de Busca Principal -->
+            <section class="mb-12">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-center text-white mb-4">Encontre seu <span class="text-indigo-400">Imóvel Ideal</span></h2>
+                <p class="text-center text-gray-400 max-w-2xl mx-auto mb-8">Utilize nossa busca avançada para encontrar exatamente o que você procura em Rolândia e região.</p>
+                <div class="max-w-3xl mx-auto relative">
+                    <input type="text" id="mainSearchInput" placeholder="Busque por bairro, cidade ou característica..." class="w-full pl-6 pr-14 py-4 text-lg rounded-full bg-zinc-900/80 border-2 border-transparent text-white placeholder-gray-500 focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 focus:outline-none transition-all">
+                    <button class="absolute right-3 top-1/2 -translate-y-1/2 p-3 bg-indigo-600 hover:bg-indigo-700 rounded-full transition-colors">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </button>
+                </div>
+            </section>
+
+            <div class="flex flex-col lg:flex-row gap-10">
+                <!-- Barra Lateral de Filtros -->
+                <aside class="w-full lg:w-1/4 lg:sticky top-28 self-start">
+                    <div class="glass-effect rounded-2xl p-6">
+                        <h3 class="text-xl font-bold text-white mb-6">Filtros</h3>
+                        
+                        <!-- Filtro de Tipo -->
+                        <div class="mb-6">
+                            <label class="block text-sm font-semibold text-gray-300 mb-3">Tipo de Imóvel</label>
+                            <div id="typeFilter" class="flex flex-wrap gap-2">
+                                <button data-type="todos" class="filter-type-btn bg-indigo-500/30 text-indigo-200 px-3 py-1 text-sm rounded-full">Todos</button>
+                                <button data-type="Casa" class="filter-type-btn bg-zinc-700 text-gray-300 px-3 py-1 text-sm rounded-full">Casas</button>
+                                <button data-type="Apartamento" class="filter-type-btn bg-zinc-700 text-gray-300 px-3 py-1 text-sm rounded-full">Apartamentos</button>
+                                <button data-type="Terreno" class="filter-type-btn bg-zinc-700 text-gray-300 px-3 py-1 text-sm rounded-full">Terrenos</button>
+                            </div>
+                        </div>
+
+                        <!-- Filtro de Preço -->
+                        <div class="mb-6">
+                            <label for="priceRange" class="block text-sm font-semibold text-gray-300 mb-3">Faixa de Preço</label>
+                            <input type="range" id="priceRange" min="100000" max="5000000" step="50000" value="5000000" class="w-full">
+                            <div class="flex justify-between text-xs text-gray-400 mt-2">
+                                <span>R$ 100 mil</span>
+                                <span id="priceValue" class="font-semibold text-indigo-300">Até R$ 5.0 mi</span>
+                                <span>R$ 5 mi+</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Filtro de Quartos -->
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-300 mb-3">Número de Quartos</label>
+                            <div id="bedroomFilter" class="flex flex-wrap gap-2">
+                                <button data-bedrooms="todos" class="filter-bedroom-btn bg-indigo-500/30 text-indigo-200 px-3 py-1.5 text-sm rounded-full">Todos</button>
+                                <button data-bedrooms="1" class="filter-bedroom-btn bg-zinc-700 text-gray-300 px-3 py-1.5 text-sm rounded-full">1+</button>
+                                <button data-bedrooms="2" class="filter-bedroom-btn bg-zinc-700 text-gray-300 px-3 py-1.5 text-sm rounded-full">2+</button>
+                                <button data-bedrooms="3" class="filter-bedroom-btn bg-zinc-700 text-gray-300 px-3 py-1.5 text-sm rounded-full">3+</button>
+                                <button data-bedrooms="4" class="filter-bedroom-btn bg-zinc-700 text-gray-300 px-3 py-1.5 text-sm rounded-full">4+</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </aside>
+
+                <!-- Grid de Resultados -->
+                <div class="w-full lg:w-3/4">
+                    <div class="flex justify-between items-center mb-6">
+                        <p id="resultsCount" class="text-gray-400">Exibindo 12 imóveis</p>
+                        <!-- Dropdown de Ordenação (opcional) -->
+                    </div>
+                    <div id="propertiesGrid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                        <!-- Os cards de imóveis serão inseridos aqui pelo JavaScript -->
+                    </div>
+                    <div id="noResults" class="hidden text-center py-20">
+                        <h3 class="text-2xl font-bold text-white">Nenhum imóvel encontrado</h3>
+                        <p class="text-gray-400 mt-2">Tente ajustar seus filtros ou termos de busca.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Chat Flutuante -->
+    <button class="fixed bottom-6 right-6 bg-indigo-600 hover:bg-indigo-700 text-white p-4 rounded-full shadow-lg transition-transform hover:scale-110">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.08-3.239A8.962 8.962 0 012 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM4.416 11.92a6.962 6.962 0 003.584 3.584L10 15.584l-1.08-3.239-.002-.002z" clip-rule="evenodd"></path></svg>
+    </button>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- BANCO DE DADOS SIMULADO ---
+            const propertiesData = [
+                { id: 1, title: 'Casa Moderna com Piscina', location: 'Jardim Europa, São Paulo', type: 'Casa', price: 2500000, bedrooms: 4, bathrooms: 5, area: 450, image: 'https://placehold.co/400x300/1e293b/e2e8f0?text=Casa+Moderna' },
+                { id: 2, title: 'Apartamento Duplex Vista Mar', location: 'Copacabana, Rio de Janeiro', type: 'Apartamento', price: 3200000, bedrooms: 3, bathrooms: 4, area: 280, image: 'https://placehold.co/400x300/1e293b/e2e8f0?text=Apto+Duplex' },
+                { id: 3, title: 'Terreno em Condomínio Fechado', location: 'Alphaville, Barueri', type: 'Terreno', price: 800000, bedrooms: 0, bathrooms: 0, area: 1000, image: 'https://placehold.co/400x300/1e293b/e2e8f0?text=Terreno' },
+                { id: 4, title: 'Apartamento Aconchegante no Centro', location: 'Centro, Rolândia', type: 'Apartamento', price: 450000, bedrooms: 2, bathrooms: 2, area: 90, image: 'https://placehold.co/400x300/1e293b/e2e8f0?text=Apto+Centro' },
+                { id: 5, title: 'Casa Térrea com Quintal Amplo', location: 'Vila Oliveira, Rolândia', type: 'Casa', price: 780000, bedrooms: 3, bathrooms: 3, area: 250, image: 'https://placehold.co/400x300/1e293b/e2e8f0?text=Casa+Térrea' },
+                { id: 6, title: 'Cobertura de Luxo', location: 'Jardins, São Paulo', type: 'Apartamento', price: 4800000, bedrooms: 4, bathrooms: 6, area: 550, image: 'https://placehold.co/400x300/1e293b/e2e8f0?text=Cobertura' },
+                { id: 7, title: 'Sítio com Vista Panorâmica', location: 'Zona Rural, Rolândia', type: 'Casa', price: 1200000, bedrooms: 5, bathrooms: 4, area: 5000, image: 'https://placehold.co/400x300/1e293b/e2e8f0?text=Sítio' },
+                { id: 8, title: 'Studio Inteligente Próximo ao Metrô', location: 'Pinheiros, São Paulo', type: 'Apartamento', price: 650000, bedrooms: 1, bathrooms: 1, area: 45, image: 'https://placehold.co/400x300/1e293b/e2e8f0?text=Studio' },
+                { id: 9, title: 'Casa de Vila Charmosa', location: 'Vila Madalena, São Paulo', type: 'Casa', price: 1800000, bedrooms: 2, bathrooms: 3, area: 180, image: 'https://placehold.co/400x300/1e293b/e2e8f0?text=Casa+de+Vila' },
+                { id: 10, title: 'Loft Industrial Moderno', location: 'Centro, Londrina', type: 'Apartamento', price: 950000, bedrooms: 1, bathrooms: 2, area: 120, image: 'https://placehold.co/400x300/1e293b/e2e8f0?text=Loft' },
+                { id: 11, title: 'Casa com 3 Suítes', location: 'Jardim do Lago, Rolândia', type: 'Casa', price: 980000, bedrooms: 3, bathrooms: 4, area: 320, image: 'https://placehold.co/400x300/1e293b/e2e8f0?text=Casa+3+Suítes' },
+                { id: 12, title: 'Terreno Plano Pronto para Construir', location: 'Parque Industrial, Rolândia', type: 'Terreno', price: 350000, bedrooms: 0, bathrooms: 0, area: 500, image: 'https://placehold.co/400x300/1e293b/e2e8f0?text=Terreno+Plano' },
+            ];
+
+            // --- ELEMENTOS DO DOM ---
+            const propertiesGrid = document.getElementById('propertiesGrid');
+            const noResultsDiv = document.getElementById('noResults');
+            const resultsCount = document.getElementById('resultsCount');
+            const searchInput = document.getElementById('mainSearchInput');
+            const typeFilterContainer = document.getElementById('typeFilter');
+            const bedroomFilterContainer = document.getElementById('bedroomFilter');
+            const priceRange = document.getElementById('priceRange');
+            const priceValue = document.getElementById('priceValue');
+
+            // --- ESTADO DOS FILTROS ---
+            let filters = {
+                searchTerm: '',
+                type: 'todos',
+                maxPrice: 5000000,
+                minBedrooms: 'todos'
+            };
+
+            // --- FUNÇÕES ---
+
+            // Função para formatar moeda
+            const formatCurrency = (value) => {
+                return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 0 }).format(value);
+            };
+            
+            // Função para formatar preço do slider
+            const formatSliderPrice = (value) => {
+                if (value >= 1000000) {
+                    return `Até R$ ${(value / 1000000).toFixed(1)} mi`.replace('.0','');
+                }
+                return `Até R$ ${(value / 1000).toFixed(0)} mil`;
+            }
+
+            // Função para renderizar os imóveis na tela
+            const renderProperties = (properties) => {
+                propertiesGrid.innerHTML = ''; // Limpa o grid
+
+                if (properties.length === 0) {
+                    noResultsDiv.classList.remove('hidden');
+                    propertiesGrid.classList.add('hidden');
+                } else {
+                    noResultsDiv.classList.add('hidden');
+                    propertiesGrid.classList.remove('hidden');
+                }
+
+                resultsCount.textContent = `Exibindo ${properties.length} de ${propertiesData.length} imóveis`;
+
+                properties.forEach(prop => {
+                    const card = `
+                        <a href="property-details.html" class="glass-effect rounded-2xl overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-indigo-500/10">
+                            <div class="relative">
+                                <img src="${prop.image}" alt="${prop.title}" class="w-full h-48 object-cover">
+                                <div class="absolute top-3 left-3 bg-black/50 text-white text-xs font-bold px-2 py-1 rounded-full">${prop.type}</div>
+                            </div>
+                            <div class="p-5">
+                                <h3 class="text-lg font-bold text-white truncate group-hover:text-indigo-400 transition-colors">${prop.title}</h3>
+                                <p class="text-sm text-gray-400 truncate mt-1">${prop.location}</p>
+                                <div class="flex items-center justify-between text-sm text-gray-300 mt-4">
+                                    ${prop.bedrooms > 0 ? `<span class="flex items-center gap-1.5">🛏️ ${prop.bedrooms}</span>` : ''}
+                                    ${prop.bathrooms > 0 ? `<span class="flex items-center gap-1.5">🛁 ${prop.bathrooms}</span>` : ''}
+                                    ${prop.area > 0 ? `<span class="flex items-center gap-1.5">📐 ${prop.area} m²</span>` : ''}
+                                </div>
+                                <p class="text-xl font-extrabold text-indigo-400 mt-4">${formatCurrency(prop.price)}</p>
+                            </div>
+                        </a>
+                    `;
+                    propertiesGrid.innerHTML += card;
+                });
+            };
+
+            // Função principal para aplicar todos os filtros
+            const applyFilters = () => {
+                let filteredProperties = propertiesData;
+
+                // 1. Filtro por texto
+                if (filters.searchTerm) {
+                    const term = filters.searchTerm.toLowerCase();
+                    filteredProperties = filteredProperties.filter(prop => 
+                        prop.title.toLowerCase().includes(term) || 
+                        prop.location.toLowerCase().includes(term)
+                    );
+                }
+
+                // 2. Filtro por tipo
+                if (filters.type !== 'todos') {
+                    filteredProperties = filteredProperties.filter(prop => prop.type === filters.type);
+                }
+                
+                // 3. Filtro por preço
+                filteredProperties = filteredProperties.filter(prop => prop.price <= filters.maxPrice);
+                
+                // 4. Filtro por quartos
+                if (filters.minBedrooms !== 'todos') {
+                    filteredProperties = filteredProperties.filter(prop => prop.bedrooms >= parseInt(filters.minBedrooms));
+                }
+
+                renderProperties(filteredProperties);
+            };
+            
+            // --- EVENT LISTENERS ---
+
+            // Busca por texto
+            searchInput.addEventListener('keyup', (e) => {
+                filters.searchTerm = e.target.value;
+                applyFilters();
+            });
+
+            // Filtro de tipo de imóvel
+            typeFilterContainer.addEventListener('click', (e) => {
+                if (e.target.tagName === 'BUTTON') {
+                    document.querySelectorAll('.filter-type-btn').forEach(btn => {
+                        btn.classList.remove('bg-indigo-500/30', 'text-indigo-200');
+                        btn.classList.add('bg-zinc-700', 'text-gray-300');
+                    });
+                    e.target.classList.add('bg-indigo-500/30', 'text-indigo-200');
+                    e.target.classList.remove('bg-zinc-700', 'text-gray-300');
+                    
+                    filters.type = e.target.dataset.type;
+                    applyFilters();
+                }
+            });
+            
+            // Filtro de quartos
+            bedroomFilterContainer.addEventListener('click', (e) => {
+                if (e.target.tagName === 'BUTTON') {
+                    document.querySelectorAll('.filter-bedroom-btn').forEach(btn => {
+                        btn.classList.remove('bg-indigo-500/30', 'text-indigo-200');
+                        btn.classList.add('bg-zinc-700', 'text-gray-300');
+                    });
+                    e.target.classList.add('bg-indigo-500/30', 'text-indigo-200');
+                    e.target.classList.remove('bg-zinc-700', 'text-gray-300');
+                    
+                    filters.minBedrooms = e.target.dataset.bedrooms;
+                    applyFilters();
+                }
+            });
+
+            // Filtro de preço
+            priceRange.addEventListener('input', (e) => {
+                const value = parseInt(e.target.value);
+                filters.maxPrice = value;
+                priceValue.textContent = formatSliderPrice(value);
+            });
+            priceRange.addEventListener('change', applyFilters); // Aplica o filtro só quando solta o mouse
+
+            // --- RENDERIZAÇÃO INICIAL ---
+            renderProperties(propertiesData);
+        });
+    </script>
+</body>
+</html>
