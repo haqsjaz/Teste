@@ -166,18 +166,18 @@
         document.addEventListener('DOMContentLoaded', () => {
             // --- BANCO DE DADOS SIMULADO ---
             const propertiesData = [
-                { id: 1, title: 'Casa Moderna com Piscina', location: 'Jardim Europa, São Paulo', type: 'Casa', price: 2500000, bedrooms: 4, bathrooms: 5, area: 450, image: 'https://placehold.co/400x300/1e293b/e2e8f0?text=Casa+Moderna' },
-                { id: 2, title: 'Apartamento Duplex Vista Mar', location: 'Copacabana, Rio de Janeiro', type: 'Apartamento', price: 3200000, bedrooms: 3, bathrooms: 4, area: 280, image: 'https://placehold.co/400x300/1e293b/e2e8f0?text=Apto+Duplex' },
-                { id: 3, title: 'Terreno em Condomínio Fechado', location: 'Alphaville, Barueri', type: 'Terreno', price: 800000, bedrooms: 0, bathrooms: 0, area: 1000, image: 'https://placehold.co/400x300/1e293b/e2e8f0?text=Terreno' },
-                { id: 4, title: 'Apartamento Aconchegante no Centro', location: 'Centro, Rolândia', type: 'Apartamento', price: 450000, bedrooms: 2, bathrooms: 2, area: 90, image: 'https://placehold.co/400x300/1e293b/e2e8f0?text=Apto+Centro' },
-                { id: 5, title: 'Casa Térrea com Quintal Amplo', location: 'Vila Oliveira, Rolândia', type: 'Casa', price: 780000, bedrooms: 3, bathrooms: 3, area: 250, image: 'https://placehold.co/400x300/1e293b/e2e8f0?text=Casa+Térrea' },
-                { id: 6, title: 'Cobertura de Luxo', location: 'Jardins, São Paulo', type: 'Apartamento', price: 4800000, bedrooms: 4, bathrooms: 6, area: 550, image: 'https://placehold.co/400x300/1e293b/e2e8f0?text=Cobertura' },
-                { id: 7, title: 'Sítio com Vista Panorâmica', location: 'Zona Rural, Rolândia', type: 'Casa', price: 1200000, bedrooms: 5, bathrooms: 4, area: 5000, image: 'https://placehold.co/400x300/1e293b/e2e8f0?text=Sítio' },
-                { id: 8, title: 'Studio Inteligente Próximo ao Metrô', location: 'Pinheiros, São Paulo', type: 'Apartamento', price: 650000, bedrooms: 1, bathrooms: 1, area: 45, image: 'https://placehold.co/400x300/1e293b/e2e8f0?text=Studio' },
-                { id: 9, title: 'Casa de Vila Charmosa', location: 'Vila Madalena, São Paulo', type: 'Casa', price: 1800000, bedrooms: 2, bathrooms: 3, area: 180, image: 'https://placehold.co/400x300/1e293b/e2e8f0?text=Casa+de+Vila' },
-                { id: 10, title: 'Loft Industrial Moderno', location: 'Centro, Londrina', type: 'Apartamento', price: 950000, bedrooms: 1, bathrooms: 2, area: 120, image: 'https://placehold.co/400x300/1e293b/e2e8f0?text=Loft' },
-                { id: 11, title: 'Casa com 3 Suítes', location: 'Jardim do Lago, Rolândia', type: 'Casa', price: 980000, bedrooms: 3, bathrooms: 4, area: 320, image: 'https://placehold.co/400x300/1e293b/e2e8f0?text=Casa+3+Suítes' },
-                { id: 12, title: 'Terreno Plano Pronto para Construir', location: 'Parque Industrial, Rolândia', type: 'Terreno', price: 350000, bedrooms: 0, bathrooms: 0, area: 500, image: 'https://placehold.co/400x300/1e293b/e2e8f0?text=Terreno+Plano' },
+                { id: 1, title: 'Casa Moderna com Piscina', location: 'Jardim Europa, São Paulo', type: 'Casa', price: 2500000, bedrooms: 4, bathrooms: 5, area: 450, image: 'casamoderna.png' },
+                { id: 2, title: 'Apartamento Duplex Vista Mar', location: 'Copacabana, Rio de Janeiro', type: 'Apartamento', price: 3200000, bedrooms: 3, bathrooms: 4, area: 280, image: 'aptoduplex.png' },
+                { id: 3, title: 'Terreno em Condomínio Fechado', location: 'Alphaville, Barueri', type: 'Terreno', price: 800000, bedrooms: 0, bathrooms: 0, area: 1000, image: 'terreno.png' },
+                { id: 4, title: 'Apartamento Aconchegante no Centro', location: 'Centro, Rolândia', type: 'Apartamento', price: 450000, bedrooms: 2, bathrooms: 2, area: 90, image: 'aptocentro.png' },
+                { id: 5, title: 'Casa Térrea com Quintal Amplo', location: 'Vila Oliveira, Rolândia', type: 'Casa', price: 780000, bedrooms: 3, bathrooms: 3, area: 250, image: 'casaterrea.png' },
+                { id: 6, title: 'Cobertura de Luxo', location: 'Jardins, São Paulo', type: 'Apartamento', price: 4800000, bedrooms: 4, bathrooms: 6, area: 550, image: 'cobertura.png' },
+                { id: 7, title: 'Sítio com Vista Panorâmica', location: 'Zona Rural, Rolândia', type: 'Casa', price: 1200000, bedrooms: 5, bathrooms: 4, area: 5000, image: 'sitio.png' },
+                { id: 8, title: 'Studio Inteligente Próximo ao Metrô', location: 'Pinheiros, São Paulo', type: 'Apartamento', price: 650000, bedrooms: 1, bathrooms: 1, area: 45, image: 'studio.png' },
+                { id: 9, title: 'Casa de Vila Charmosa', location: 'Vila Madalena, São Paulo', type: 'Casa', price: 1800000, bedrooms: 2, bathrooms: 3, area: 180, image: 'casadevila.png' },
+                { id: 10, title: 'Loft Industrial Moderno', location: 'Centro, Londrina', type: 'Apartamento', price: 950000, bedrooms: 1, bathrooms: 2, area: 120, image: 'loft.png' },
+                { id: 11, title: 'Casa com 3 Suítes', location: 'Jardim do Lago, Rolândia', type: 'Casa', price: 980000, bedrooms: 3, bathrooms: 4, area: 320, image: 'casa3suites.png' },
+                { id: 12, title: 'Terreno Plano Pronto para Construir', location: 'Parque Industrial, Rolândia', type: 'Terreno', price: 350000, bedrooms: 0, bathrooms: 0, area: 500, image: 'terrenoplano.png' },
             ];
 
             // --- ELEMENTOS DO DOM ---
@@ -331,3 +331,4 @@
     </script>
 </body>
 </html>
+
