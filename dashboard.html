@@ -80,6 +80,12 @@
                             <span>Chat</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="#" data-target="usuarios-content" class="flex items-center space-x-3 text-gray-400 hover:text-white hover:bg-zinc-800 p-3 rounded-lg transition-colors">
+                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M15 21a6 6 0 00-9-5.197m0 0A5.995 5.995 0 0012 12a5.995 5.995 0 00-3-5.197M15 21a6 6 0 00-9-5.197" /></svg>
+                            <span>Usuários</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
             <div class="mt-auto">
@@ -109,7 +115,7 @@
                 </header>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
-                    <!-- Card: Total de Imóveis -->
+                    <!-- Cards de Métricas -->
                     <div class="glass-effect p-6 rounded-2xl">
                         <div class="flex items-center justify-between">
                             <p class="text-sm font-medium text-gray-400">Total de Imóveis</p>
@@ -117,7 +123,6 @@
                         </div>
                         <p class="text-4xl font-extrabold text-white mt-2">128</p>
                     </div>
-                    <!-- Card: Imóveis Disponíveis -->
                     <div class="glass-effect p-6 rounded-2xl">
                         <div class="flex items-center justify-between">
                             <p class="text-sm font-medium text-gray-400">Disponíveis / Alugados</p>
@@ -125,7 +130,6 @@
                         </div>
                         <p class="text-4xl font-extrabold text-white mt-2">95 <span class="text-lg text-gray-400 font-medium">/ 33</span></p>
                     </div>
-                    <!-- Card: Mensagens Recebidas -->
                     <div class="glass-effect p-6 rounded-2xl">
                         <div class="flex items-center justify-between">
                             <p class="text-sm font-medium text-gray-400">Mensagens Recebidas</p>
@@ -133,7 +137,6 @@
                         </div>
                         <p class="text-4xl font-extrabold text-white mt-2">72</p>
                     </div>
-                     <!-- Card: Visualizações (Mês) -->
                     <div class="glass-effect p-6 rounded-2xl">
                         <div class="flex items-center justify-between">
                             <p class="text-sm font-medium text-gray-400">Visualizações (Mês)</p>
@@ -144,14 +147,12 @@
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <!-- Gráfico de Linha: Visualizações -->
                     <div class="lg:col-span-2 glass-effect p-6 rounded-2xl">
                         <h3 class="text-lg font-semibold text-white mb-4">Visualizações nos Últimos 30 Dias</h3>
                         <div class="relative h-80">
                             <canvas id="viewsChart"></canvas>
                         </div>
                     </div>
-                    <!-- Gráfico de Pizza: Status dos Imóveis -->
                     <div class="glass-effect p-6 rounded-2xl flex flex-col">
                         <h3 class="text-lg font-semibold text-white mb-4">Status dos Imóveis</h3>
                         <div class="relative flex-grow">
@@ -161,9 +162,9 @@
                 </div>
             </div>
 
-            <!-- Seção de Imóveis (Conteúdo Real) -->
+            <!-- Seção de Imóveis -->
             <div id="imoveis-content" class="hidden">
-                <header class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+                 <header class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
                     <div>
                         <h2 class="text-3xl font-bold text-white">Gerenciamento de Imóveis</h2>
                         <p class="text-gray-400">Liste, adicione, edite e remova os imóveis da plataforma.</p>
@@ -191,71 +192,23 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- Item 1 -->
                                 <tr class="border-b border-white/10 hover:bg-zinc-800/50 transition-colors">
-                                    <td class="p-6">
-                                        <div class="flex items-center space-x-4">
-                                            <img src="https://placehold.co/80x60/334155/e2e8f0?text=Imovel1" alt="Imagem do Imóvel" class="w-20 h-15 object-cover rounded-md flex-shrink-0">
-                                            <div class="min-w-0">
-                                                <p class="font-bold text-white truncate">Casa Moderna com Piscina</p>
-                                                <p class="text-sm text-gray-400 truncate">Jardim Europa, São Paulo</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-6 hidden md:table-cell">
-                                        <span class="px-3 py-1 text-xs font-semibold rounded-full bg-green-500/20 text-green-300">Disponível</span>
-                                    </td>
+                                    <td class="p-6"><div class="flex items-center space-x-4"><img src="https://placehold.co/80x60/334155/e2e8f0?text=Imovel1" alt="Imagem do Imóvel" class="w-20 h-15 object-cover rounded-md flex-shrink-0"><div class="min-w-0"><p class="font-bold text-white truncate">Casa Moderna com Piscina</p><p class="text-sm text-gray-400 truncate">Jardim Europa, São Paulo</p></div></div></td>
+                                    <td class="p-6 hidden md:table-cell"><span class="px-3 py-1 text-xs font-semibold rounded-full bg-green-500/20 text-green-300">Disponível</span></td>
                                     <td class="p-6 text-white font-semibold hidden lg:table-cell">R$ 2.500.000</td>
-                                    <td class="p-6">
-                                        <div class="flex space-x-2">
-                                            <button class="p-2 rounded-md hover:bg-zinc-700 transition-colors"><svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.5L15.232 5.232z"></path></svg></button>
-                                            <button class="p-2 rounded-md hover:bg-zinc-700 transition-colors"><svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
-                                        </div>
-                                    </td>
+                                    <td class="p-6"><div class="flex space-x-2"><button class="p-2 rounded-md hover:bg-zinc-700 transition-colors"><svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.5L15.232 5.232z"></path></svg></button><button class="p-2 rounded-md hover:bg-zinc-700 transition-colors"><svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button></div></td>
                                 </tr>
-                                <!-- Item 2 -->
                                 <tr class="border-b border-white/10 hover:bg-zinc-800/50 transition-colors">
-                                    <td class="p-6">
-                                        <div class="flex items-center space-x-4">
-                                            <img src="https://placehold.co/80x60/334155/e2e8f0?text=Imovel2" alt="Imagem do Imóvel" class="w-20 h-15 object-cover rounded-md flex-shrink-0">
-                                            <div class="min-w-0">
-                                                <p class="font-bold text-white truncate">Apartamento Duplex Vista Mar</p>
-                                                <p class="text-sm text-gray-400 truncate">Copacabana, Rio de Janeiro</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-6 hidden md:table-cell">
-                                        <span class="px-3 py-1 text-xs font-semibold rounded-full bg-blue-500/20 text-blue-300">Alugado</span>
-                                    </td>
+                                    <td class="p-6"><div class="flex items-center space-x-4"><img src="https://placehold.co/80x60/334155/e2e8f0?text=Imovel2" alt="Imagem do Imóvel" class="w-20 h-15 object-cover rounded-md flex-shrink-0"><div class="min-w-0"><p class="font-bold text-white truncate">Apartamento Duplex Vista Mar</p><p class="text-sm text-gray-400 truncate">Copacabana, Rio de Janeiro</p></div></div></td>
+                                    <td class="p-6 hidden md:table-cell"><span class="px-3 py-1 text-xs font-semibold rounded-full bg-blue-500/20 text-blue-300">Alugado</span></td>
                                     <td class="p-6 text-white font-semibold hidden lg:table-cell">R$ 15.000 /mês</td>
-                                     <td class="p-6">
-                                        <div class="flex space-x-2">
-                                            <button class="p-2 rounded-md hover:bg-zinc-700 transition-colors"><svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.5L15.232 5.232z"></path></svg></button>
-                                            <button class="p-2 rounded-md hover:bg-zinc-700 transition-colors"><svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
-                                        </div>
-                                    </td>
+                                     <td class="p-6"><div class="flex space-x-2"><button class="p-2 rounded-md hover:bg-zinc-700 transition-colors"><svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.5L15.232 5.232z"></path></svg></button><button class="p-2 rounded-md hover:bg-zinc-700 transition-colors"><svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button></div></td>
                                 </tr>
-                                 <!-- Item 3 -->
                                 <tr class="hover:bg-zinc-800/50 transition-colors">
-                                    <td class="p-6">
-                                        <div class="flex items-center space-x-4">
-                                            <img src="https://placehold.co/80x60/334155/e2e8f0?text=Imovel3" alt="Imagem do Imóvel" class="w-20 h-15 object-cover rounded-md flex-shrink-0">
-                                            <div class="min-w-0">
-                                                <p class="font-bold text-white truncate">Terreno em Condomínio Fechado</p>
-                                                <p class="text-sm text-gray-400 truncate">Alphaville, Barueri</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-6 hidden md:table-cell">
-                                        <span class="px-3 py-1 text-xs font-semibold rounded-full bg-red-500/20 text-red-300">Vendido</span>
-                                    </td>
+                                    <td class="p-6"><div class="flex items-center space-x-4"><img src="https://placehold.co/80x60/334155/e2e8f0?text=Imovel3" alt="Imagem do Imóvel" class="w-20 h-15 object-cover rounded-md flex-shrink-0"><div class="min-w-0"><p class="font-bold text-white truncate">Terreno em Condomínio Fechado</p><p class="text-sm text-gray-400 truncate">Alphaville, Barueri</p></div></div></td>
+                                    <td class="p-6 hidden md:table-cell"><span class="px-3 py-1 text-xs font-semibold rounded-full bg-red-500/20 text-red-300">Vendido</span></td>
                                     <td class="p-6 text-white font-semibold hidden lg:table-cell">R$ 800.000</td>
-                                     <td class="p-6">
-                                        <div class="flex space-x-2">
-                                            <button class="p-2 rounded-md hover:bg-zinc-700 transition-colors"><svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.5L15.232 5.232z"></path></svg></button>
-                                            <button class="p-2 rounded-md hover:bg-zinc-700 transition-colors"><svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
-                                        </div>
-                                    </td>
+                                     <td class="p-6"><div class="flex space-x-2"><button class="p-2 rounded-md hover:bg-zinc-700 transition-colors"><svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.5L15.232 5.232z"></path></svg></button><button class="p-2 rounded-md hover:bg-zinc-700 transition-colors"><svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button></div></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -263,156 +216,142 @@
                 </div>
             </div>
 
-            <!-- Seção de Mensagens (Conteúdo Real) -->
+            <!-- Seção de Mensagens -->
             <div id="mensagens-content" class="hidden">
-                <header class="mb-8">
-                    <h2 class="text-3xl font-bold text-white">Caixa de Entrada</h2>
-                    <p class="text-gray-400">Mensagens recebidas através do formulário de contato.</p>
-                </header>
+                <header class="mb-8"><h2 class="text-3xl font-bold text-white">Caixa de Entrada</h2><p class="text-gray-400">Mensagens recebidas através do formulário de contato.</p></header>
                 <div class="glass-effect rounded-2xl flex" style="height: 70vh;">
-                    <!-- Lista de Mensagens -->
                     <div class="w-full md:w-1/3 border-r border-white/10 overflow-y-auto">
-                        <!-- Mensagem 1 (Ativa) -->
-                        <div class="p-4 border-b border-white/10 bg-indigo-500/10 cursor-pointer">
-                            <div class="flex justify-between items-center">
-                                <h3 class="font-bold text-white">Ana Paula</h3>
-                                <span class="text-xs text-gray-400">Hoje</span>
-                            </div>
-                            <p class="text-sm font-semibold text-gray-300 truncate mt-1">Interesse na Casa Moderna</p>
-                            <p class="text-sm text-gray-500 truncate">Olá, gostaria de agendar uma visita para...</p>
-                        </div>
-                         <!-- Mensagem 2 -->
-                        <div class="p-4 border-b border-white/10 hover:bg-zinc-800/50 cursor-pointer">
-                            <div class="flex justify-between items-center">
-                                <h3 class="font-bold text-white">Carlos Silva</h3>
-                                <span class="text-xs text-gray-400">Ontem</span>
-                            </div>
-                            <p class="text-sm font-semibold text-gray-300 truncate mt-1">Proposta Apartamento Duplex</p>
-                            <p class="text-sm text-gray-500 truncate">Tenho uma proposta para o apartamento em...</p>
-                        </div>
-                        <!-- Mensagem 3 -->
-                        <div class="p-4 border-b border-white/10 hover:bg-zinc-800/50 cursor-pointer">
-                             <div class="flex justify-between items-center">
-                                <h3 class="font-bold text-white">Mariana Costa</h3>
-                                <span class="text-xs text-gray-400">27/08/25</span>
-                            </div>
-                            <p class="text-sm font-semibold text-gray-300 truncate mt-1">Dúvida sobre o terreno</p>
-                            <p class="text-sm text-gray-500 truncate">Gostaria de saber mais detalhes sobre a...</p>
-                        </div>
+                        <div class="p-4 border-b border-white/10 bg-indigo-500/10 cursor-pointer"><div class="flex justify-between items-center"><h3 class="font-bold text-white">Ana Paula</h3><span class="text-xs text-gray-400">Hoje</span></div><p class="text-sm font-semibold text-gray-300 truncate mt-1">Interesse na Casa Moderna</p><p class="text-sm text-gray-500 truncate">Olá, gostaria de agendar uma visita para...</p></div>
+                        <div class="p-4 border-b border-white/10 hover:bg-zinc-800/50 cursor-pointer"><div class="flex justify-between items-center"><h3 class="font-bold text-white">Carlos Silva</h3><span class="text-xs text-gray-400">Ontem</span></div><p class="text-sm font-semibold text-gray-300 truncate mt-1">Proposta Apartamento Duplex</p><p class="text-sm text-gray-500 truncate">Tenho uma proposta para o apartamento em...</p></div>
+                        <div class="p-4 border-b border-white/10 hover:bg-zinc-800/50 cursor-pointer"><div class="flex justify-between items-center"><h3 class="font-bold text-white">Mariana Costa</h3><span class="text-xs text-gray-400">27/08/25</span></div><p class="text-sm font-semibold text-gray-300 truncate mt-1">Dúvida sobre o terreno</p><p class="text-sm text-gray-500 truncate">Gostaria de saber mais detalhes sobre a...</p></div>
                     </div>
-                    <!-- Conteúdo da Mensagem -->
                     <div class="w-2/3 p-6 flex-col hidden md:flex">
-                        <header class="pb-4 border-b border-white/10">
-                            <div class="flex justify-between items-center">
-                                <h3 class="text-xl font-bold text-white">Interesse na Casa Moderna com Piscina</h3>
-                                <div class="flex space-x-2">
-                                    <button class="p-2 rounded-md hover:bg-zinc-700 transition-colors"><svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg><span class="sr-only">Responder</span></button>
-                                    <button class="p-2 rounded-md hover:bg-zinc-700 transition-colors"><svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg><span class="sr-only">Excluir</span></button>
-                                </div>
-                            </div>
-                            <div class="flex items-center space-x-4 mt-4">
-                                 <span class="h-10 w-10 rounded-full bg-indigo-500 flex items-center justify-center font-bold text-white">AP</span>
-                                <div>
-                                    <p class="font-semibold text-white">Ana Paula</p>
-                                    <p class="text-sm text-gray-400">ana.paula@email.com | (11) 98765-4321</p>
-                                </div>
-                            </div>
-                        </header>
-                        <div class="flex-grow pt-6 text-gray-300 leading-relaxed overflow-y-auto">
-                            <p>Olá, boa tarde.</p>
-                            <br>
-                            <p>Vi o anúncio da Casa Moderna com Piscina no Jardim Europa e fiquei muito interessada.</p>
-                            <br>
-                            <p>Seria possível agendar uma visita para este sábado pela manhã? Tenho disponibilidade a partir das 9h.</p>
-                            <br>
-                            <p>Fico no aguardo de um retorno.</p>
-                            <br>
-                            <p>Obrigada,</p>
-                            <p>Ana Paula</p>
-                        </div>
+                        <header class="pb-4 border-b border-white/10"><div class="flex justify-between items-center"><h3 class="text-xl font-bold text-white">Interesse na Casa Moderna com Piscina</h3><div class="flex space-x-2"><button class="p-2 rounded-md hover:bg-zinc-700 transition-colors"><svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg><span class="sr-only">Responder</span></button><button class="p-2 rounded-md hover:bg-zinc-700 transition-colors"><svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg><span class="sr-only">Excluir</span></button></div></div><div class="flex items-center space-x-4 mt-4"><span class="h-10 w-10 rounded-full bg-indigo-500 flex items-center justify-center font-bold text-white">AP</span><div><p class="font-semibold text-white">Ana Paula</p><p class="text-sm text-gray-400">ana.paula@email.com | (11) 98765-4321</p></div></div></header>
+                        <div class="flex-grow pt-6 text-gray-300 leading-relaxed overflow-y-auto"><p>Olá, boa tarde.</p><br><p>Vi o anúncio da Casa Moderna com Piscina no Jardim Europa e fiquei muito interessada.</p><br><p>Seria possível agendar uma visita para este sábado pela manhã? Tenho disponibilidade a partir das 9h.</p><br><p>Fico no aguardo de um retorno.</p><br><p>Obrigada,</p><p>Ana Paula</p></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Seção de Chat (Conteúdo Real) -->
+            <!-- Seção de Chat -->
             <div id="chat-content" class="hidden">
-                 <header class="mb-8">
-                    <h2 class="text-3xl font-bold text-white">Gerenciamento de Chat</h2>
-                    <p class="text-gray-400">Converse em tempo real com os visitantes do site.</p>
-                </header>
+                 <header class="mb-8"><h2 class="text-3xl font-bold text-white">Gerenciamento de Chat</h2><p class="text-gray-400">Converse em tempo real com os visitantes do site.</p></header>
                 <div class="glass-effect rounded-2xl flex" style="height: 70vh;">
-                    <!-- Lista de Conversas -->
                     <div class="w-full md:w-1/3 border-r border-white/10 overflow-y-auto">
-                        <!-- Conversa 1 (Ativa) -->
-                        <div class="p-4 flex items-center space-x-3 border-b border-white/10 bg-indigo-500/10 cursor-pointer">
-                            <div class="relative">
-                                <span class="h-12 w-12 rounded-full bg-teal-500 flex items-center justify-center font-bold text-white">R</span>
-                                <span class="absolute bottom-0 right-0 block h-3 w-3 rounded-full bg-green-400 ring-2 ring-zinc-800"></span>
-                            </div>
-                            <div class="flex-1 min-w-0">
-                                <div class="flex justify-between items-center">
-                                    <h3 class="font-bold text-white text-sm truncate">Ricardo Mendes</h3>
-                                    <span class="text-xs text-green-400">Online</span>
-                                </div>
-                                <p class="text-sm text-gray-400 truncate">Ok, obrigado! Vou analisar e te reto...</p>
-                            </div>
-                        </div>
-                        <!-- Conversa 2 -->
-                        <div class="p-4 flex items-center space-x-3 border-b border-white/10 hover:bg-zinc-800/50 cursor-pointer">
-                             <div class="relative">
-                                <span class="h-12 w-12 rounded-full bg-rose-500 flex items-center justify-center font-bold text-white">J</span>
-                            </div>
-                            <div class="flex-1 min-w-0">
-                                <div class="flex justify-between items-center">
-                                    <h3 class="font-bold text-white text-sm truncate">Juliana Farias</h3>
-                                    <span class="text-xs text-gray-500">2h atrás</span>
-                                </div>
-                                <p class="text-sm text-gray-400 truncate">Perfeito, muito obrigada!</p>
-                            </div>
-                        </div>
+                        <div class="p-4 flex items-center space-x-3 border-b border-white/10 bg-indigo-500/10 cursor-pointer"><div class="relative"><span class="h-12 w-12 rounded-full bg-teal-500 flex items-center justify-center font-bold text-white">R</span><span class="absolute bottom-0 right-0 block h-3 w-3 rounded-full bg-green-400 ring-2 ring-zinc-800"></span></div><div class="flex-1 min-w-0"><div class="flex justify-between items-center"><h3 class="font-bold text-white text-sm truncate">Ricardo Mendes</h3><span class="text-xs text-green-400">Online</span></div><p class="text-sm text-gray-400 truncate">Ok, obrigado! Vou analisar e te reto...</p></div></div>
+                        <div class="p-4 flex items-center space-x-3 border-b border-white/10 hover:bg-zinc-800/50 cursor-pointer"><div class="relative"><span class="h-12 w-12 rounded-full bg-rose-500 flex items-center justify-center font-bold text-white">J</span></div><div class="flex-1 min-w-0"><div class="flex justify-between items-center"><h3 class="font-bold text-white text-sm truncate">Juliana Farias</h3><span class="text-xs text-gray-500">2h atrás</span></div><p class="text-sm text-gray-400 truncate">Perfeito, muito obrigada!</p></div></div>
                     </div>
-                    <!-- Janela da Conversa -->
                     <div class="w-2/3 flex-col hidden md:flex">
-                        <header class="p-4 flex items-center space-x-4 border-b border-white/10 flex-shrink-0">
-                             <span class="h-10 w-10 rounded-full bg-teal-500 flex items-center justify-center font-bold text-white">R</span>
-                             <div>
-                                <p class="font-semibold text-white">Ricardo Mendes</p>
-                                <p class="text-sm text-green-400">Online</p>
-                             </div>
-                        </header>
+                        <header class="p-4 flex items-center space-x-4 border-b border-white/10 flex-shrink-0"><span class="h-10 w-10 rounded-full bg-teal-500 flex items-center justify-center font-bold text-white">R</span><div><p class="font-semibold text-white">Ricardo Mendes</p><p class="text-sm text-green-400">Online</p></div></header>
                         <div class="flex-grow p-6 overflow-y-auto space-y-6">
-                            <!-- Mensagem Recebida -->
-                            <div class="flex items-start gap-3">
-                                <span class="h-8 w-8 rounded-full bg-teal-500 flex items-center justify-center font-bold text-white text-sm flex-shrink-0">R</span>
-                                <div class="bg-zinc-800 p-3 rounded-lg rounded-tl-none max-w-md">
-                                    <p class="text-sm text-gray-300">Olá, tenho interesse no apartamento de Copacabana. Ele ainda está disponível para aluguel?</p>
-                                    <span class="text-xs text-gray-500 block text-right mt-1">10:30</span>
-                                </div>
-                            </div>
-                             <!-- Mensagem Enviada -->
-                            <div class="flex items-start gap-3 justify-end">
-                                <div class="bg-indigo-600 p-3 rounded-lg rounded-br-none max-w-md">
-                                    <p class="text-sm text-white">Olá Ricardo, bom dia! Sim, ele ainda está disponível.</p>
-                                    <span class="text-xs text-indigo-200 block text-right mt-1">10:31</span>
-                                </div>
-                                 <span class="h-8 w-8 rounded-full bg-indigo-500 flex items-center justify-center font-bold text-white text-sm flex-shrink-0">C</span>
-                            </div>
-                            <!-- Mensagem Recebida -->
-                             <div class="flex items-start gap-3">
-                                <span class="h-8 w-8 rounded-full bg-teal-500 flex items-center justify-center font-bold text-white text-sm flex-shrink-0">R</span>
-                                <div class="bg-zinc-800 p-3 rounded-lg rounded-tl-none max-w-md">
-                                    <p class="text-sm text-gray-300">Ótimo! Quais são os requisitos para alugar? E seria possível visitar o imóvel?</p>
-                                     <span class="text-xs text-gray-500 block text-right mt-1">10:32</span>
-                                </div>
-                            </div>
+                            <div class="flex items-start gap-3"><span class="h-8 w-8 rounded-full bg-teal-500 flex items-center justify-center font-bold text-white text-sm flex-shrink-0">R</span><div class="bg-zinc-800 p-3 rounded-lg rounded-tl-none max-w-md"><p class="text-sm text-gray-300">Olá, tenho interesse no apartamento de Copacabana. Ele ainda está disponível para aluguel?</p><span class="text-xs text-gray-500 block text-right mt-1">10:30</span></div></div>
+                            <div class="flex items-start gap-3 justify-end"><div class="bg-indigo-600 p-3 rounded-lg rounded-br-none max-w-md"><p class="text-sm text-white">Olá Ricardo, bom dia! Sim, ele ainda está disponível.</p><span class="text-xs text-indigo-200 block text-right mt-1">10:31</span></div><span class="h-8 w-8 rounded-full bg-indigo-500 flex items-center justify-center font-bold text-white text-sm flex-shrink-0">C</span></div>
+                            <div class="flex items-start gap-3"><span class="h-8 w-8 rounded-full bg-teal-500 flex items-center justify-center font-bold text-white text-sm flex-shrink-0">R</span><div class="bg-zinc-800 p-3 rounded-lg rounded-tl-none max-w-md"><p class="text-sm text-gray-300">Ótimo! Quais são os requisitos para alugar? E seria possível visitar o imóvel?</p><span class="text-xs text-gray-500 block text-right mt-1">10:32</span></div></div>
                         </div>
-                        <footer class="p-4 border-t border-white/10 flex-shrink-0 bg-zinc-900">
-                            <div class="flex items-center space-x-3">
-                                <input type="text" placeholder="Digite sua mensagem..." class="w-full p-3 rounded-full bg-zinc-800 border border-white/20 text-white placeholder-gray-500 focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 focus:outline-none transition-all">
-                                <button class="bg-indigo-600 hover:bg-indigo-700 text-white p-3 rounded-full transition-colors duration-300 flex-shrink-0">
-                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M3.105 3.105a1 1 0 00-1.414 1.414L10 12.586l-2.828 2.829a1 1 0 101.414 1.414L12.414 14 15.5 17.086a1 1 0 001.414-1.414L13.828 12.586l8.486-8.485a1 1 0 00-1.414-1.414L12.414 11 3.105 3.105z" clip-rule="evenodd" fill-rule="evenodd" style="display:none"></path><path d="M3.105 3.105a1 1 0 00-1.414 1.414L10 12.586l2.828-2.828a1 1 0 00-1.414-1.414L10 9.758 6.914 6.672a1 1 0 00-1.414 1.414L8.586 11 3.105 16.485a1 1 0 101.414 1.414L11 12.414l5.485 5.486a1 1 0 001.414-1.414L12.414 11l2.829-2.828a1 1 0 10-1.414-1.414L11 8.586 5.515 3.105a1 1 0 00-1.414 0z" clip-rule="evenodd" fill-rule="evenodd" style="display:none"></path><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" fill-rule="evenodd" style="display: none;"></path><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg></button>
-                            </div>
-                        </footer>
+                        <footer class="p-4 border-t border-white/10 flex-shrink-0 bg-zinc-900"><div class="flex items-center space-x-3"><input type="text" placeholder="Digite sua mensagem..." class="w-full p-3 rounded-full bg-zinc-800 border border-white/20 text-white placeholder-gray-500 focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 focus:outline-none transition-all"><button class="bg-indigo-600 hover:bg-indigo-700 text-white p-3 rounded-full transition-colors duration-300 flex-shrink-0"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg></button></div></footer>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Seção de Gerenciamento de Usuários -->
+            <div id="usuarios-content" class="hidden">
+                 <header class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white">Gerenciamento de Usuários</h2>
+                        <p class="text-gray-400">Adicione, edite e gerencie os corretores e administradores.</p>
+                    </div>
+                    <div class="mt-4 md:mt-0">
+                         <button id="addUserBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-5 rounded-full transition-colors duration-300 flex items-center space-x-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                            <span>Adicionar Usuário</span>
+                        </button>
+                    </div>
+                </header>
+                <div class="glass-effect rounded-2xl overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead class="border-b border-white/10">
+                                <tr>
+                                    <th class="p-6 text-sm font-semibold text-gray-300">NOME</th>
+                                    <th class="p-6 text-sm font-semibold text-gray-300 hidden md:table-cell">PERFIL</th>
+                                    <th class="p-6 text-sm font-semibold text-gray-300 hidden lg:table-cell">STATUS</th>
+                                    <th class="p-6 text-sm font-semibold text-gray-300">AÇÕES</th>
+                                </tr>
+                            </thead>
+                             <tbody>
+                                <!-- Usuário 1 -->
+                                <tr class="border-b border-white/10 hover:bg-zinc-800/50 transition-colors">
+                                    <td class="p-6">
+                                        <div class="flex items-center space-x-4">
+                                            <span class="h-10 w-10 rounded-full bg-fuchsia-500 flex items-center justify-center font-bold text-white">C</span>
+                                            <div>
+                                                <p class="font-bold text-white">Caio Hanke</p>
+                                                <p class="text-sm text-gray-400">caio.hanke@email.com</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="p-6 hidden md:table-cell">
+                                        <span class="px-3 py-1 text-xs font-semibold rounded-full bg-fuchsia-500/20 text-fuchsia-300">Administrador</span>
+                                    </td>
+                                    <td class="p-6 hidden lg:table-cell">
+                                        <span class="px-3 py-1 text-xs font-semibold rounded-full bg-green-500/20 text-green-300">Ativo</span>
+                                    </td>
+                                    <td class="p-6">
+                                        <div class="flex space-x-2">
+                                            <button class="p-2 rounded-md hover:bg-zinc-700 transition-colors edit-user-btn"><svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.5L15.232 5.232z"></path></svg></button>
+                                            <button class="p-2 rounded-md hover:bg-zinc-700 transition-colors"><svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Usuário 2 -->
+                                <tr class="border-b border-white/10 hover:bg-zinc-800/50 transition-colors">
+                                    <td class="p-6">
+                                        <div class="flex items-center space-x-4">
+                                            <span class="h-10 w-10 rounded-full bg-sky-500 flex items-center justify-center font-bold text-white">B</span>
+                                            <div>
+                                                <p class="font-bold text-white">Beatriz Lima</p>
+                                                <p class="text-sm text-gray-400">beatriz.lima@email.com</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="p-6 hidden md:table-cell">
+                                        <span class="px-3 py-1 text-xs font-semibold rounded-full bg-sky-500/20 text-sky-300">Corretor</span>
+                                    </td>
+                                    <td class="p-6 hidden lg:table-cell">
+                                        <span class="px-3 py-1 text-xs font-semibold rounded-full bg-green-500/20 text-green-300">Ativo</span>
+                                    </td>
+                                    <td class="p-6">
+                                        <div class="flex space-x-2">
+                                            <button class="p-2 rounded-md hover:bg-zinc-700 transition-colors edit-user-btn"><svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.5L15.232 5.232z"></path></svg></button>
+                                            <button class="p-2 rounded-md hover:bg-zinc-700 transition-colors"><svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Usuário 3 -->
+                                <tr class="hover:bg-zinc-800/50 transition-colors">
+                                    <td class="p-6">
+                                        <div class="flex items-center space-x-4">
+                                            <span class="h-10 w-10 rounded-full bg-gray-500 flex items-center justify-center font-bold text-white">L</span>
+                                            <div>
+                                                <p class="font-bold text-white">Lucas Martins</p>
+                                                <p class="text-sm text-gray-400">lucas.martins@email.com</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="p-6 hidden md:table-cell">
+                                        <span class="px-3 py-1 text-xs font-semibold rounded-full bg-sky-500/20 text-sky-300">Corretor</span>
+                                    </td>
+                                    <td class="p-6 hidden lg:table-cell">
+                                        <span class="px-3 py-1 text-xs font-semibold rounded-full bg-gray-500/20 text-gray-300">Inativo</span>
+                                    </td>
+                                    <td class="p-6">
+                                        <div class="flex space-x-2">
+                                            <button class="p-2 rounded-md hover:bg-zinc-700 transition-colors edit-user-btn"><svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.5L15.232 5.232z"></path></svg></button>
+                                            <button class="p-2 rounded-md hover:bg-zinc-700 transition-colors"><svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                             </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -420,110 +359,135 @@
         </main>
     </div>
 
+    <!-- Modal para Adicionar/Editar Usuário -->
+    <div id="userModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+        <!-- Backdrop -->
+        <div id="modalBackdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+        <!-- Modal Content -->
+        <div class="relative w-full max-w-lg glass-effect rounded-2xl p-8">
+            <button id="closeModalBtn" class="absolute top-4 right-4 p-2 rounded-full hover:bg-zinc-700 transition-colors">
+                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h3 id="modalTitle" class="text-2xl font-bold text-white mb-6">Adicionar Novo Usuário</h3>
+            <form action="#" class="space-y-5">
+                <div>
+                    <label for="userName" class="block text-sm font-medium text-gray-300 mb-1">Nome Completo</label>
+                    <input type="text" id="userName" class="w-full p-3 rounded-lg bg-zinc-900/80 border border-white/20 text-white placeholder-gray-500 focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 focus:outline-none transition-all">
+                </div>
+                <div>
+                    <label for="userEmail" class="block text-sm font-medium text-gray-300 mb-1">E-mail</label>
+                    <input type="email" id="userEmail" class="w-full p-3 rounded-lg bg-zinc-900/80 border border-white/20 text-white placeholder-gray-500 focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 focus:outline-none transition-all">
+                </div>
+                 <div>
+                    <label for="userPassword" class="block text-sm font-medium text-gray-300 mb-1">Senha</label>
+                    <input type="password" id="userPassword" placeholder="Deixe em branco para não alterar" class="w-full p-3 rounded-lg bg-zinc-900/80 border border-white/20 text-white placeholder-gray-500 focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 focus:outline-none transition-all">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label for="userProfile" class="block text-sm font-medium text-gray-300 mb-1">Perfil</label>
+                        <select id="userProfile" class="w-full p-3 rounded-lg bg-zinc-900/80 border border-white/20 text-white focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 focus:outline-none transition-all">
+                            <option value="corretor">Corretor</option>
+                            <option value="admin">Administrador</option>
+                        </select>
+                    </div>
+                     <div>
+                        <label for="userStatus" class="block text-sm font-medium text-gray-300 mb-1">Status</label>
+                        <select id="userStatus" class="w-full p-3 rounded-lg bg-zinc-900/80 border border-white/20 text-white focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 focus:outline-none transition-all">
+                            <option value="ativo">Ativo</option>
+                            <option value="inativo">Inativo</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="flex justify-end space-x-4 pt-4">
+                    <button type="button" id="cancelModalBtn" class="py-2 px-5 rounded-full text-white bg-zinc-700 hover:bg-zinc-600 transition-colors">Cancelar</button>
+                    <button type="submit" class="py-2 px-5 rounded-full text-white bg-indigo-600 hover:bg-indigo-700 transition-colors font-semibold">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // --- GRÁFICO DE VISUALIZAÇÕES (LINHA) ---
-        const viewsCtx = document.getElementById('viewsChart').getContext('2d');
-        const gradient = viewsCtx.createLinearGradient(0, 0, 0, 300);
-        gradient.addColorStop(0, 'rgba(99, 102, 241, 0.5)');
-        gradient.addColorStop(1, 'rgba(99, 102, 241, 0)');
-
-        const viewsChart = new Chart(viewsCtx, {
-            type: 'line',
-            data: {
-                labels: Array.from({ length: 30 }, (_, i) => i + 1), // Dias 1 a 30
-                datasets: [{
-                    label: 'Visualizações',
-                    data: [12, 19, 23, 25, 22, 30, 45, 40, 55, 60, 58, 70, 75, 80, 78, 85, 90, 88, 92, 100, 110, 105, 120, 130, 125, 140, 150, 145, 160, 175].slice(0, 30),
-                    borderColor: 'rgba(129, 140, 248, 1)', // indigo-400
-                    backgroundColor: gradient,
-                    borderWidth: 2,
-                    pointBackgroundColor: 'rgba(129, 140, 248, 1)',
-                    pointRadius: 0,
-                    pointHoverRadius: 6,
-                    tension: 0.4,
-                    fill: true,
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { display: false } },
-                scales: {
-                    y: { 
-                        beginAtZero: true, 
-                        grid: { color: 'rgba(255, 255, 255, 0.1)' },
-                        ticks: { color: '#9ca3af' } // gray-400
-                    },
-                    x: { 
-                        grid: { color: 'rgba(255, 255, 255, 0.05)' },
-                        ticks: { color: '#9ca3af' } // gray-400
-                    }
-                }
-            }
-        });
-
-        // --- GRÁFICO DE STATUS (PIZZA/DOUGHNUT) ---
-        const statusCtx = document.getElementById('statusChart').getContext('2d');
-        const statusChart = new Chart(statusCtx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Disponível', 'Alugado', 'Vendido'],
-                datasets: [{
-                    data: [95, 33, 12],
-                    backgroundColor: [
-                        'rgba(52, 211, 153, 0.8)', // green-400
-                        'rgba(96, 165, 250, 0.8)', // blue-400
-                        'rgba(248, 113, 113, 0.8)'  // red-400
-                    ],
-                    borderColor: '#121212',
-                    borderWidth: 4,
-                    hoverOffset: 8
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: {
-                            color: '#e5e7eb', // gray-200
-                            boxWidth: 12,
-                            padding: 20
-                        }
-                    }
-                }
-            }
-        });
+        // --- GRÁFICOS ---
+        // (código dos gráficos permanece o mesmo)
+        const viewsCtx = document.getElementById('viewsChart')?.getContext('2d');
+        if (viewsCtx) {
+            const gradient = viewsCtx.createLinearGradient(0, 0, 0, 300);
+            gradient.addColorStop(0, 'rgba(99, 102, 241, 0.5)');
+            gradient.addColorStop(1, 'rgba(99, 102, 241, 0)');
+            const viewsChart = new Chart(viewsCtx, {
+                type: 'line',
+                data: {
+                    labels: Array.from({ length: 30 }, (_, i) => i + 1),
+                    datasets: [{
+                        label: 'Visualizações',
+                        data: [12, 19, 23, 25, 22, 30, 45, 40, 55, 60, 58, 70, 75, 80, 78, 85, 90, 88, 92, 100, 110, 105, 120, 130, 125, 140, 150, 145, 160, 175].slice(0, 30),
+                        borderColor: 'rgba(129, 140, 248, 1)', backgroundColor: gradient, borderWidth: 2, pointRadius: 0, pointHoverRadius: 6, tension: 0.4, fill: true,
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, grid: { color: 'rgba(255, 255, 255, 0.1)' }, ticks: { color: '#9ca3af' } }, x: { grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#9ca3af' } } } }
+            });
+        }
+        const statusCtx = document.getElementById('statusChart')?.getContext('2d');
+        if (statusCtx) {
+            const statusChart = new Chart(statusCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Disponível', 'Alugado', 'Vendido'],
+                    datasets: [{
+                        data: [95, 33, 12],
+                        backgroundColor: ['rgba(52, 211, 153, 0.8)', 'rgba(96, 165, 250, 0.8)', 'rgba(248, 113, 113, 0.8)'],
+                        borderColor: '#121212', borderWidth: 4, hoverOffset: 8
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { color: '#e5e7eb', boxWidth: 12, padding: 20 } } } }
+            });
+        }
         
         // --- LÓGICA DE NAVEGAÇÃO DA SIDEBAR ---
         const sidebarLinks = document.querySelectorAll('aside nav a');
         const contentSections = document.querySelectorAll('main > div[id$="-content"]');
-
         sidebarLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-
                 const targetId = link.getAttribute('data-target');
-
-                // Atualiza o estilo do link ativo
-                sidebarLinks.forEach(l => {
-                    l.classList.remove('text-white', 'bg-indigo-500/20', 'font-semibold');
-                    l.classList.add('text-gray-400');
-                });
+                sidebarLinks.forEach(l => l.classList.remove('text-white', 'bg-indigo-500/20', 'font-semibold'));
                 link.classList.add('text-white', 'bg-indigo-500/20', 'font-semibold');
-                link.classList.remove('text-gray-400');
-
-                // Mostra/esconde as seções de conteúdo
                 contentSections.forEach(section => {
-                    if (section.id === targetId) {
-                        section.classList.remove('hidden');
-                    } else {
-                        section.classList.add('hidden');
-                    }
+                    section.id === targetId ? section.classList.remove('hidden') : section.classList.add('hidden');
                 });
             });
+        });
+
+        // --- LÓGICA DO MODAL DE USUÁRIOS ---
+        const userModal = document.getElementById('userModal');
+        const addUserBtn = document.getElementById('addUserBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const cancelModalBtn = document.getElementById('cancelModalBtn');
+        const modalBackdrop = document.getElementById('modalBackdrop');
+        const modalTitle = document.getElementById('modalTitle');
+        const editUserBtns = document.querySelectorAll('.edit-user-btn');
+        
+        const openModal = () => userModal.classList.replace('hidden', 'flex');
+        const closeModal = () => userModal.classList.replace('flex', 'hidden');
+
+        addUserBtn.addEventListener('click', () => {
+            modalTitle.textContent = 'Adicionar Novo Usuário';
+            // Limpar formulário se necessário
+            document.querySelector('#userModal form').reset();
+            openModal();
+        });
+
+        editUserBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                modalTitle.textContent = 'Editar Usuário';
+                // Aqui você adicionaria a lógica para preencher o formulário com os dados do usuário
+                openModal();
+            });
+        });
+
+        [closeModalBtn, cancelModalBtn, modalBackdrop].forEach(el => {
+            el.addEventListener('click', closeModal);
         });
     });
     </script>
